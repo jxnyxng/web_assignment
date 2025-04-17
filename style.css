@@ -1,0 +1,250 @@
+.head{
+    position: fixed;
+    background-color: whitesmoke;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(40, 40, 40);
+}
+
+body{ 
+    background-image: url(/WP-assignment/image/다운로드.jpeg);
+    background-size: cover;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(243, 243, 243);
+}
+/* 상단 타이틀 ----------------------*/
+.title{   
+    position: fixed;
+    top: 0.2%;
+    display: flex;  
+    width: 6%;  
+    height: 3%; 
+ 
+
+    background-color: hwb(0 0% 100%);  
+    backdrop-filter: blur(10px);
+
+    margin-top: 1%;
+    margin-left: 47%;
+    margin-right: 47%; 
+    border-radius: 45px; 
+    padding: 10px;
+    z-index: 1;
+ 
+    align-items: center; 
+    
+    /*등장 애니메이션*/
+    animation-name: SC;
+    transition: 0.3s; 
+    animation-duration: 1s; 
+    animation-iteration-count: 1;  
+}
+.title:hover{
+    transform: scale(1.1);
+    transition: 0.3s; 
+    cursor: pointer;
+} 
+
+.title h1{ 
+    text-align: center;  
+    color: #ffffff;
+    border-radius: 20px; 
+    font: weight 100px; 
+    margin : auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    height: 100%;
+}
+  
+
+/* 첫 화면--------------- */
+.welcome{ /*큰 디브*/
+    display: flex;
+    align-items: center;
+    margin-bottom: 10%;
+    margin-top: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 3%;
+    padding-left: 7%;
+    /* background-color: whitesmoke;
+    box-shadow: 0 0 10px rgb(217, 217, 217); */
+
+    border-radius: 40px; 
+    
+    /* 등장 애니메이션 */
+    animation-name: DtoU ;
+    transition: 1s;   
+    animation-duration: 1s; 
+    animation-iteration-count: 1;  
+}
+
+.welcome-para{ 
+    margin-right: 27%;  
+    font-size: x-large; 
+    
+    /* 등장 애니메이션 */
+    animation-name: RtoL ;
+    transition: 1s;
+    animation-duration: 1s; 
+    animation-iteration-count: 1;  
+}
+.welcome-para strong{ 
+    font-size: larger; 
+}
+
+.welcome-para h2{
+    font-size: xx-large;
+}
+
+   
+/* ----------------------------------------------------- */
+
+.container {
+    display: flex;
+    align-items: flex-start;  
+    margin-top: 1%;
+}
+
+/* 좌측 목차 디자인 ---------------------------------------*/
+.index {  
+    position: sticky;
+    top: 35%; 
+    width: 150px; 
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 20px 0; 
+    margin-left: 6%;  
+    margin-top: 3%; 
+
+    border-radius: 30px;
+   
+    font-size: large; 
+    font-weight: 200; 
+}
+
+/* 스크롤 내릴 때 목차 반응 */
+.small-index.active {
+    background-color: hwb(0 100% 0%);  
+    backdrop-filter: blur(10px);
+    color: rgb(0, 0, 0);
+    font-weight: bold;  
+
+    /* 등장 애니메이션 */
+    transform: scale(1.2);
+    transition: 0.3s;   
+    animation-duration: 0.3s; 
+    animation-iteration-count: 1;  
+}
+  
+.small-index:hover{ 
+    transform: scale(1.2);
+    box-shadow: 0 0 3px hsla(0, 0%, 34%, 0.984); 
+    cursor: pointer;
+} 
+
+.small-index {
+    display: block;
+    box-shadow: 0 0 2px rgb(116, 116, 116);
+    color: black;
+    width: 100%;  
+    
+    background-color: rgba(245, 245, 245, 0.4);
+    backdrop-filter: blur(5px); 
+    
+    border-radius: 25px; 
+    padding: 12px 20px; 
+    text-align: center;   
+    text-decoration: none; 
+ 
+    font-weight: 400;
+    font-size: large;
+ 
+    transition: 0.5s;   
+}
+ 
+/* ----------------------------------------------------- */ 
+/* .moveToTop-div {
+    position: sticky;
+    top: 50%;  
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 20px 0; 
+    margin-left: 3%;
+
+    border-radius: 30px;
+   
+    font-size: larger; 
+}
+.moveToTop {
+    display: block;
+    box-shadow: 0 0 2px rgb(116, 116, 116);
+    color: black;
+    width: 50%;
+    height: 50%;  
+    background-color: white;  
+    border-radius: 50%;
+    padding: 12px 20px; 
+    text-align: center;   
+    text-decoration: none; 
+ 
+    font-weight: 400;
+    font-size: large;
+ 
+    transition: 0.5s;   
+}
+.moveToTop:hover{ 
+    transform: scale(1.1);
+    box-shadow: 0 0 3px hsla(0, 0%, 34%, 0.984); 
+    cursor: pointer;
+}  */
+/* 탑 이동 버튼 */
+
+/* -------------------------------------------------------- */
+/* 전체 내용 디브 */ 
+.paragraphs { 
+    font-size: large;
+    color: #212121;
+    width: 70%;
+    border-radius: 60px;
+    align-items: center;
+ 
+    margin-top: 2%; 
+    margin-bottom: 8%;  
+}
+
+.paragraphs h2{
+    font-size: xx-large;
+    font-weight: bold;
+}
+ 
+
+/* 각 목차별 디브 */
+.big-box { 
+    width: 70%;   
+    padding: 1%; 
+    text-align: left;
+    
+    background-color: rgba(242, 242, 242, 0.8);
+    backdrop-filter: blur(5px);
+
+    border-radius: 70px; 
+    margin: 12%;  
+    margin-top: 0;
+    margin-left: 17%; 
+}
+ 
+
+/* 내용 디브 */
+.para{ 
+    width: 80%; 
+    text-align: center;  
+    margin: 5% auto;
+
+    font-size: 20px;
+ 
+    border-radius: 60px;
+    box-sizing: border-box;  
+}

@@ -1,0 +1,104 @@
+.profile{    
+    align-items: center; 
+    margin-right: 8%; 
+    margin-left: auto;
+    padding: 2%; 
+
+    width: 20%; 
+    height: 30%;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.905); 
+
+    color: black;
+    
+    /* 등장 애니메이션 */
+    animation-name: DtoU ;
+    transition: 1s;   
+    animation-duration: 1s; 
+    animation-iteration-count: 1;   
+}
+
+.profile:hover {
+    box-shadow: 0 0 10px hwb(0 46% 54%);
+    /* cursor: pointer;  */
+} 
+
+/* .profile:active{
+    transform: scale(0.93);
+    transition: 0.5s;
+    animation-duration: 0.5s; 
+}  */
+
+.profile-info{  
+        align-items: center;
+        text-align: center;
+}
+
+.avatar{
+    box-shadow: 0 0 8px rgb(112, 112, 112); 
+    border-radius: 100px;
+    margin-top: 20%;
+    width: 60%;
+    height: 50%;
+}
+
+/* 바로가기 버튼 */  
+.quickMenu{
+    align-items: center;
+    display: flex;
+    margin-top: 25%;
+    margin-bottom: 12%;
+    margin-right: auto; 
+    margin-left: auto;
+    padding-left: 1%;
+    width: 65%;
+    height: 25%;
+    background-color: hwb(248 2% 69%);  
+    border-radius: 50px; 
+          
+}  
+.quickMenu img{
+    margin-left: 3%;
+    padding: 2%;
+} 
+
+.quickMenu img:active{ 
+    transform: scale(0.93);
+    transition: 0.5s;
+    animation-duration: 0.5s; 
+} 
+
+.Tstory{ 
+    width: 20%;
+    height: 20%;
+    transition: 0.5s;
+}
+.Tstory:hover{
+    cursor: pointer;
+    scale: 1.1;   
+    transition: 0.5s;
+}
+
+.solvedAC{      
+    width: 30%;
+    height: 30%;
+    transition: 0.5s;  
+}
+
+.solvedAC:hover{
+    cursor: pointer;
+    scale: 1.1;   
+    transition: 0.5s;
+}
+ 
+.gitHub{
+    width: 25%;
+    height: 25%; 
+    transition: 0.5s;
+}
+.gitHub:hover{
+    cursor: pointer;
+    scale: 1.1;   
+    transition: 0.5s;
+}
+/* ----------------------- */

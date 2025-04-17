@@ -1,0 +1,37 @@
+/* 첫화면 등장  */
+@keyframes RtoL {
+    from {
+      transform: translateX(30%); 
+    }
+    to {
+      transform: translateX(0); 
+    }
+}
+
+@keyframes LtoR {
+    from {
+      transform: translateX(-30%); 
+    }
+    to {
+      transform: translateX(0); 
+    }
+}
+
+@keyframes DtoU {
+  from {
+    transform: translateY(30%); 
+  }
+  to {
+    transform: translateY(0); 
+  }
+}
+/* ------------------------------------ */ 
+@keyframes SC {
+  from { 
+    transform: scale(2); 
+  }
+  to { 
+    transform: scale(1);  
+  } 
+}
+
