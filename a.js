@@ -36,11 +36,11 @@ topLinks.forEach(link => {
     });
   });
 });
-// 목차 색상 변경 코드
-// 현재 보고 있는 목차에 색깔 표시
+// 스크롤 위치에 따른 컨텐츠 효과
 function updateActiveIndex() {
-  const sections = document.querySelectorAll('.paragraphs > div'); // paragraphs 클래스 바로 아래 div 선택
+  const sections = document.querySelectorAll('.paragraphs > div');
   const navLinks = document.querySelectorAll('.small-index');
+  const bigBoxes = document.querySelectorAll('.big-box');
 
   sections.forEach((section, index) => {
     const sectionTop = section.offsetTop;
@@ -48,22 +48,86 @@ function updateActiveIndex() {
     const scrollPosition = window.scrollY;
 
     const correspondingNavLink = navLinks[index];
+    const correspondingBigBox = bigBoxes[index];
 
-    if (correspondingNavLink) {
-      if (scrollPosition >= sectionTop -  (window.innerHeight) / 2 && scrollPosition < sectionBottom - window.innerHeight / 2) {
-        correspondingNavLink.classList.add('active');   
-      } else {
-        correspondingNavLink.classList.remove('active'); 
+    if (scrollPosition >= sectionTop - window.innerHeight / 2 && scrollPosition < sectionBottom - window.innerHeight / 3) {
+      if (correspondingNavLink) {
+        correspondingNavLink.classList.add('active');
+      }
+
+      if (correspondingBigBox && !correspondingBigBox.classList.contains('animated')) {
+        correspondingBigBox.classList.add('DtoU', 'animated');
+      }
+
+    } else {
+      if (correspondingNavLink) {
+        correspondingNavLink.classList.remove('active');
       }
     }
   });
 }
 
+ 
+// 상단 텍스트 변경 구현
+document.addEventListener('DOMContentLoaded', function() {
+  const moveToTopLink = document.querySelector('.moveToTop');
+  const topTextElement = moveToTopLink.querySelector('.top-text');
+  const sections = document.querySelectorAll('.paragraphs > div');
+
+  // -------------------------------------------
+  function updateHeaderText(text, animationClass) {
+    let newHTML = `<div class="header-text ${animationClass}">`; 
+    for (const char of text) {
+      if (char === ' ') {
+        newHTML += `<span>&nbsp;</span>`; 
+      } else {
+        newHTML += `<span>${char}</span>`;
+      }
+    }
+    newHTML += `</div>`;
+    topTextElement.innerHTML = newHTML;
+  }
+  // ------------------------------------------------
+  if (topTextElement && sections.length > 0) {
+    window.addEventListener('scroll', function() {
+      const currentScrollPosition = window.scrollY;
+      let currentTitle = "HELLO";
+      let currentAnimationClass = "hello-animation"; // 초기 애니메이션 
+
+      for (let i = 0; i < sections.length; i++) {
+        const sectionTop = sections[i].offsetTop;
+        const sectionBottom = sectionTop + sections[i].offsetHeight;
+        const sectionTitleElement = sections[i].querySelector('.para-title');
+
+        if (currentScrollPosition >= sectionTop + (window.innerHeight) / 20 && currentScrollPosition < sectionBottom - window.innerHeight / 3) {
+          if (sectionTitleElement) {
+            currentTitle = sectionTitleElement.textContent.trim();
+            currentAnimationClass = `section${i + 1}-animation`; // 섹션별 애니메이션 클래스
+          } else {
+            currentTitle = " "; // 제목이 없으면 기본으로
+            currentAnimationClass = "hello-animation";
+          }
+          break;
+        } else if (currentScrollPosition >= 0.5) {
+          currentTitle = " ";
+          currentAnimationClass = ""; // 애니메이션x
+        }
+      }
+
+      updateHeaderText(currentTitle, currentAnimationClass);
+    });
+
+    // 초기 로딩 시 "HELLO" 
+    updateHeaderText("HELLO", "hello-animation");
+  }
+});
+//-----------------------------------
+ 
 // 스크롤 이벤트 리스너 등록
 window.addEventListener('scroll', updateActiveIndex);
 
-// 초기 로드 시에도 한번 실행하여 첫 번째 섹션에 색깔을 적용할 수 있도록 함
-document.addEventListener('DOMContentLoaded', updateActiveIndex);
+// 초기 로드 시에도 한번 실행하여 첫 번째 섹션에 색깔을 적용 
+document.addEventListener('DOMContentLoaded', updateActiveIndex); 
 
 // -------------------------------------------------------------------------------------
  
@@ -85,26 +149,4 @@ document.addEventListener('DOMContentLoaded', function() {
       window.open('https://github.com/jxnyxng', '_blank'); // 깃허브 이동
   }); 
 });
-
-//원페이지 스크롤 구현
  
-// 상단 텍스트 변경 구현
-document.addEventListener('DOMContentLoaded', function() {
-  const moveToTopLink = document.querySelector('.moveToTop');
-  const topTextElement = moveToTopLink.querySelector('.topText');
-  const triggerPosition = 800; // 텍스트 변경이 발생하는 스크롤 Y축 위치 (원하는 값으로 변경)
-  const originalText = "hello"; // 원래 텍스트
-  const newText = " "; // 변경할 새로운 텍스트
-
-  if (topTextElement) {
-    window.addEventListener('scroll', function() {
-      const currentScrollPosition = window.scrollY;
-
-      if (currentScrollPosition > triggerPosition) {
-        topTextElement.textContent = newText;
-      } else {
-        topTextElement.textContent = originalText;
-      }
-    });
-  }
-});
